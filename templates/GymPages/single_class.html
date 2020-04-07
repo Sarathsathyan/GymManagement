@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+
+
+<section class="classes" xmlns="http://www.w3.org/1999/html">
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+          <div class="classes_box">
+            {% if img == 1 %}
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/1.jpg' %}" alt=""> </div>
+              {% endif %}
+          {% if img == 2 %}
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/2.jpg' %}" alt=""> </div>
+              {% endif %}
+          {% if img == 3 %}
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/3.jpg' %}" alt=""> </div>
+              {% endif %}
+          {% if img == 4 %}
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/4.jpg' %}" style="width: 100%" alt=""> </div>
+              {% endif %}
+          {% if img == 5 %}
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/5.jpg' %}" style="width: 100%" alt=""> </div>
+              {% endif %}
+          {% if img == 6 %}
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/6.jpeg' %}" alt=""> </div>
+              {% endif %}
+            <div class="classes_detail">
+              <h3>{{ name }}</h3>
+                <h3>Time : {{ time }}AM</h3>
+              <p> {{ notes }} </p>
+            </div>
+          </div>
+        </div>
+</div>
+</div>
+</section>
+<section class="container">
+<h3 style=" color: #ee6c0c;">
+    Register for this workout ?
+</h3><br>
+<form method="POST" class="fom-group" enctype="multipart/form-data"  >
+<input type="text" value="{{ name }}" class="text"><br>
+Name* :
+<input type="text" class="form-control " required><br>
+Phone* :
+<input type="text" class="form-control" required><br>
+Email* :
+<input type="text" class="form-control" required><br>
+
+State* :
+                    <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+                    <br>
+City* :
+                    <select id ="state" class="form-control" name="district" required></select>
+                    <script language="javascript">print_state("sts");</script>
+
+<input class="btn btn-success color" type="submit" name="submit" id="submit" value="Submit" style="float: right; margin-top: 5px;width: 100px">
+</form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="page-wrapper blogpage2">
+  <!-- Preloader -->
+  <div class="preloader"></div>
+  <!-- Preloader -->
+
+
+
+  <!-- Page_banner start -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt">
+          <h1 class="wow fadeInUp animated title_animate">Contact Us</h1>
+          <h3 class="wow fadeInUp animated titlep_animate">Building A Community of Fitness Athletic</h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Contact Us </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+  <!-- contact start-->
+  <section class="contact_detail">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-10">
+          <div class="contact_detail_box">
+            <h2>Get In Touch</h2>
+            <p>A gym is a club, building, or large room, usually containing special equipment, where people go to do physical exercise and get fit.</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 inner_col">
+              <div class="address_box">
+                <h2>Location</h2>
+                <div class="address-box"> <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <p>Near Christ College<br>
+                    Bangalore, Karnataka</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 inner_col">
+              <div class="address_box">
+                <h2>Email</h2>
+                <div class="address-box"> <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <p>sarathsathyangeetha@gmail.com<br>
+                    Contact_us@yourdomein.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 inner_col">
+              <div class="address_box">
+                <h2>Phone no.</h2>
+                <div class="address-box"> <i class="fa fa-phone" aria-hidden="true"></i>
+                  <p>8147907030<br>
+                    9539247954</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8 inner_col">
+              <div class="address_box">
+                <h2>Timing</h2>
+                <div class="address-box"> <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  <p><a href="#">Monday - friday: 11am to 8pm</a><br>
+                    <a href="#">Saturday - Sunday: 11am To 5pm</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+          <div class="contact_form">
+
+            <form  method="post">
+            {% csrf_token %}
+              <div class="col-lg-12 col-md-4 col-sm-4"><h3 class="color">Ask any quires to our customer service</h3><br>
+                <input name="name" class="contact_form_detail" required type="text" placeholder="Your Name">
+              </div>
+              <div class="col-lg-12 col-md-4 col-sm-4">
+                <input name="phone" class="contact_form_detail" required type="text" placeholder="Your Phone">
+              </div>
+              <div class="col-lg-12 col-md-4 col-sm-4">
+                <input name="email" class="contact_form_detail" required type="text" placeholder="Your Email">
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <textarea name="message" class="contact_form_detail1" required placeholder="Your Messge"></textarea>
+              </div>
+              <div class="col-md-12">
+                <div class="submit_btn_box">
+                  <input name="submit" class="submit_btn" type="submit" value="Send Message">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- contact end-->
+</div>
+
+{% endblock %}

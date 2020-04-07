@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="page-wrapper blogpage2">
+  <!-- Preloader -->
+  <div class="preloader"></div>
+  <!-- Preloader -->
+
+
+  <!-- Page_banner start -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt wow fadeIn animated" data-wow-delay="1s" data-wow-duration="1000ms">
+          <h1 class="wow fadeInUp animated title_animate"> Classes </h1>
+          <h3 class="wow fadeInUp animated titlep_animate"> Building A Community of Fitness Athletic </h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Classes </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+  <!-- Classes start-->
+  <section class="classes">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-1.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>kettlebell</h3>
+              <p class="read_more"><a href="{% url 'single' 1 %}" class="classes_more">Click for more informationn</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-2.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Conjugate Methods</h3>
+
+              <p class="read_more"><a href="{% url 'single' 2 %}" class="classes_more">Click for more information</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-4.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Advanced Gymnastic</h3>
+              <p class="read_more"><a href="{% url 'single' 3 %}" class="classes_more">Click for more information</a></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-7.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Body Pump</h3>
+              <p class="read_more"><a href="{% url 'single' 4 %}" class="classes_more">Click for more information</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-8.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Striking</h3>
+              <p class="read_more"><a href="{% url 'single' 5 %}" class="classes_more">Click for more information</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-9.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>cardio</h3>
+              <p class="read_more"><a href="{% url 'single' 6 %}" class="classes_more">Click for more information</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Classes end-->
+</div>
+
+{% endblock %}
