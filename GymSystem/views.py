@@ -1,13 +1,42 @@
-from django.shortcuts import render
+import re
+from django.shortcuts import render,redirect
 from GymManagement.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
+from django.contrib import messages
+from email_validator import validate_email, EmailNotValidError
+from .models import Register,Contact,Reviews
 # Create your views here.
 
 def index(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+
+        if name.isdigit():
+            messages.error(request,'Enter valid name')
+        regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+        if regex.search(name):
+            messages.error(request, 'Name cannot have special characters')
+            return redirect('contact')
+        if Reviews.objects.filter(email=email).exists():
+            messages.error(request, 'Review is already submitted by using this Email ID')
+            return redirect('index')
+        try:
+            v = validate_email(email)
+            val_email = v["email"]
+        except EmailNotValidError as e:
+            messages.error(request, 'Invalid Email ID')
+            return redirect('admin_add_user')
+        data = Reviews(name=name, email=email, message=message)
+        data.save()
+        messages.success(request,'Review submitted successfully')
+
     return render(request,'GymPages/index.html')
 
 def courses(request):
     return render(request,'GymPages/classes.html')
+
 
 # Single class
 def single(request,id):
@@ -58,6 +87,24 @@ def single(request,id):
         'img':img,
     }
 
+    if request.method == 'POST':
+        event = request.POST['event']
+        name = request.POST['name']
+        mobile = request.POST['mobile']
+        email = request.POST['email']
+        state = request.POST['stt']
+        district = request.POST['district']
+        address = request.POST['address']
+
+        if name.isdigit():
+            messages.error(request,"Name is not valid")
+            print("errror")
+            return redirect('single',id)
+        data = Register(event=event,name=name,phone=mobile,email=email,state=state,district=district,address=address)
+        data.save()
+        messages.success(request,"Successfully submitted")
+
+
     return render(request,'GymPages/single_class.html',context)
 
 
@@ -65,13 +112,27 @@ def contact(request):
     if request.method == 'POST':
         print('start')
         name = request.POST['name']
-        user_mob = request.POST['mobile']
+        user_mob = request.POST['phone']
         user_message = request.POST['message']
         message2 ="Message from Admin : Thanks for your response ! We will go through your requirements"
         phone = "For any queries you can contact : 9539247954 "
         email = request.POST['email']
+        regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+        if regex.search(name):
+            messages.error(request, 'Name cannot have special characters')
+            return redirect('contact')
+        try:
+            v = validate_email(email)
+            val_email = v["email"]
+        except EmailNotValidError as e:
+            messages.error(request, 'Invalid Email ID')
+            return redirect('contact')
+        data = Contact(name=name, phone=user_mob, email=email, message=user_message)
+        data.save()
+
         send_mail(message2,phone,EMAIL_HOST_USER,[email],fail_silently=False)
         print('sucess')
+        messages.success(request,"Successfully submitted")
         return render(request,'GymPages/contact.html')
 
     return render(request,'GymPages/contact.html')

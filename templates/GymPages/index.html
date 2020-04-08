@@ -11,6 +11,7 @@
 
   <!-- /Carousel start-->
   <div class="main-slider slide-wrapper main-banner-area">
+
     <div class="banner-slide owl-carousel">
       <div class="single-banner-slide" style="background-image: url({% static 'images/banner.png' %});">
         <div class="slide-content">
@@ -24,7 +25,7 @@
                 <div class="col-lg-6 col-md-5 col-sm-12"></div>
                 <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 slider_text" data-animation="animated bounceInUp">
                   <p> Stay Connected With Your Customers. Life Begins At The End Of Your Comfort Zone </p>
-                  <a href="#contact" class="slider_readmore "><span>Contact Us</span> <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i></a> </div>
+                  <a href="{% url 'contact' %}" class="slider_readmore "><span>Contact Us</span> <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i></a> </div>
               </div>
             </div>
           </div>
@@ -43,7 +44,7 @@
                 <div class="col-lg-6 col-md-5 col-sm-12"></div>
                 <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 slider_text" data-animation="animated bounceInUp">
                   <p>LOOK in the MIRROR --- Thats your competition </p>
-                  <a href="#contact" class="slider_readmore "><span>Contact Us</span> <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i></a> </div>
+                  <a href="{% url 'contact' %}" class="slider_readmore "><span>Contact Us</span> <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i></a> </div>
               </div>
             </div>
           </div>
@@ -62,7 +63,7 @@
                 <div class="col-lg-6 col-md-5 col-sm-12"></div>
                 <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 slider_text" data-animation="animated bounceInUp">
                   <p> The last three or four reps is what makes the muscle grow. This area of pain divides a champion from someone who is not a champion </p>
-                  <a href="#contact" class="slider_readmore "><span>Contact Us</span> <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i></a> </div>
+                  <a href="{% url 'contact' %}" class="slider_readmore "><span>Contact Us</span> <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i></a> </div>
               </div>
             </div>
           </div>
@@ -402,12 +403,12 @@
   <!-- Contact_from start-->
   <section id="contact" class="home_contact_sec">
     <div>
-      <div class="container">
+      <div class="container">   {% include 'partials/_alerts.html' %}
         <div class="row">
           <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 right">
             <div class="right_form">
-              <h2>Get In touch</h2>
-              <form id="contactForm" class="site-contact-form">
+              <h2>Send Your Reviews</h2>
+              <form  class="site-contact-form">
                 <div class="col-lg-12 col-sm-12">
                   <div class="row">
                     <input type="text" name="name" placeholder="Name" required>

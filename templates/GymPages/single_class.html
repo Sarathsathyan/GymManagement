@@ -3,7 +3,7 @@
 {% block content %}
     {% load static %}
 
-
+{% include 'partials/_alerts.html' %}
 <section class="classes" xmlns="http://www.w3.org/1999/html">
 <div class="container">
 <div class="row">
@@ -38,17 +38,19 @@
 </div>
 </section>
 <section class="container">
+
 <h3 style=" color: #ee6c0c;">
     Register for this workout ?
 </h3><br>
 <form method="POST" class="fom-group" enctype="multipart/form-data"  >
-<input type="text" value="{{ name }}" class="text"><br>
+    {% csrf_token %}
+<input type="text" value="{{ name }}" class="text" name="event" readonly><br>
 Name* :
-<input type="text" class="form-control " required><br>
+<input type="text" name="name" class="form-control " required><br>
 Phone* :
-<input type="text" class="form-control" required><br>
+<input type="text" name="mobile" class="form-control" required><br>
 Email* :
-<input type="text" class="form-control" required><br>
+<input type="text" name="email" class="form-control" required><br>
 
 State* :
                     <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
@@ -56,8 +58,9 @@ State* :
 City* :
                     <select id ="state" class="form-control" name="district" required></select>
                     <script language="javascript">print_state("sts");</script>
-
-<input class="btn btn-success color" type="submit" name="submit" id="submit" value="Submit" style="float: right; margin-top: 5px;width: 100px">
+Address* :
+<input type="text" name="address" class="form-control" required><br>
+<input class="btn btn-success color" type="submit" name="submit" id="submit" value="Submit" style="float: right; margin-top: 3px;margin-bottom:-5px;width: 100px">
 </form>
 </section>
 
