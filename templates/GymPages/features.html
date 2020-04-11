@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper blogpage2">
+  <!-- Preloader -->
+  <div class="preloader"></div>
+  <!-- Preloader -->
+
+
+  <!-- Page_banner start -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt wow fadeIn animated" data-wow-delay="1s" data-wow-duration="1000ms">
+          <h1 class="wow fadeInUp animated title_animate"> Classes </h1>
+          <h3 class="wow fadeInUp animated titlep_animate"> Building A Community of Fitness Athletic </h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Features </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+  <!-- Classes start-->
+  <section class="classes">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-1.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Easy registration of members</h3>
+              <p class="read_more"><a href="{% url 'classes' %}" class="classes_more">Click here to reister for courses</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-2.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Members Feedback</h3>
+              <p class="read_more"><a href="{% url 'single' 3 %}" class="classes_more">Feedback from members is important</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-4.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Contact </h3>
+              <p class="read_more"><a href="{% url 'single' 3 %}" class="classes_more">Our help team is ready to clear all your doubts</a></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-7.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Brochure Facility</h3>
+              <p class="read_more"><a href="{% url 'single' 4 %}" class="classes_more">Brochure wil contain the information about the team</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-8.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Shedule for demo</h3>
+              <p class="read_more"><a href="{% url 'single' 5 %}" class="classes_more">Shedule time for a demo of our website</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="classes_box">
+
+            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-9.png' %}" alt=""> </div>
+            <div class="classes_detail">
+              <h3>Easy customization</h3>
+              <p class="read_more"><a href="{% url 'single' 6 %}" class="classes_more">Accept special features and response from our customers</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Classes end-->
+</div>
+{% endblock %}

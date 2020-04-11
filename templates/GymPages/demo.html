@@ -1,0 +1,67 @@
+{% extends 'base.html' %}{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper blogpage2">
+
+  <div class="preloader"></div>
+     <!-- Page_banner end -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt">
+          <h1 class="wow fadeInUp animated title_animate"> Shedule a free demo</h1>
+          <h3 class="wow fadeInUp animated titlep_animate"> Please fill out the following information and we'll be in touch with you shortly to schedule a free demo presentation.</h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Request Demo </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+
+      <!-- about start-->
+  <section class="blog_main_sec">
+    <div class="container">
+      <div class="row">
+          <form method="post">
+
+            <div class="col-md-6">
+                <div class="inner_about_con">
+    {#          <div class="about_img"> <img class="img-responsive" src="{% static 'images/about_png.png' %}" alt=""> </div>#}
+                <h1>fitness is 100% mental</h1>
+                    {% csrf_token %}
+                    Firstname*
+                  <input type="text" class="form-control form" name="firstname" required><br>
+                  Lastname*
+                  <input type="text" class="form-control form" name="lastname" required><br>
+                  Email*
+                  <input type="text" class="form-control form" name="email" required><br>
+                  Mobile*
+                  <input type="text" class="form-control form" name="mobile" required><br>
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="inner_about_con">
+                <h1>Register for demo</h1><br>
+                   {{ form|crispy }}<br>
+                  Club/company name*
+                  <input type="text" class="form-control form" name="cname" required><br>
+                  Number of fitness club*
+                  <input type="text" class="form-control form" name="num" required><br>
+                  What management software you are using?
+                  <input type="text" class="form-control form" name="soft" ><br>
+
+                    <input class="btn btn-success" type="submit" name="submit" id="submit" value="Submit">
+
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </section>
+  <!-- about end-->
+</div>
+
+{% endblock %}

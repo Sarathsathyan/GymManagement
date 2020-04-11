@@ -5,6 +5,8 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from email_validator import validate_email, EmailNotValidError
 from .models import Register,Contact,Reviews
+from .forms import demo
+
 # Create your views here.
 
 def index(request):
@@ -140,3 +142,17 @@ def contact(request):
 
 def about(request):
     return render(request,'GymPages/about.html')
+
+
+# DEMO
+
+def Demo(request):
+    form = demo()
+    context ={
+        'form' :form,
+    }
+    return render(request,'GymPages/demo.html',context)
+
+#features
+def feature(request):
+    return render(request,'GymPages/features.html')

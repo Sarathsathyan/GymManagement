@@ -401,12 +401,7 @@ a.js-scroll-trigger{
 .jj_position_absolute .main-menu .nav li a:hover, .jj_position_absolute .main-menu .nav li.current a {
     color: #ee6c0c;
 }
-.index_header .nav li a{		
-    color: #fff !important;		
-}
-.index_header .nav li a{
-	color:#fff;
-}
+
 /* 
 ---------------------------------------------
 Curousel slider
