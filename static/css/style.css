@@ -1948,11 +1948,11 @@ color: #a9a9a9;
 	padding-left: 25px;
 	background: transparent;
 }
-.form-control:focus {
-	border: none;
-	border-color: transparent;
-	box-shadow: none;
-}
+/*.form-control:focus {*/
+/*	border: none;*/
+
+/*	box-shadow: none;*/
+/*}*/
 .search_blog button {
 	margin: 2px 0 0 0;
 	background: none;
