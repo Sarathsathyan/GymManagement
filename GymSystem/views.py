@@ -4,8 +4,8 @@ from GymManagement.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 from django.contrib import messages
 from email_validator import validate_email, EmailNotValidError
-from .models import Register,Contact,Reviews
-from .forms import demo
+from .models import Register,Contact,Reviews,demo
+from .forms import Demo
 
 # Create your views here.
 
@@ -146,8 +146,21 @@ def about(request):
 
 # DEMO
 
-def Demo(request):
-    form = demo()
+def Demos(request):
+    form = Demo()
+    if request.method == 'POST':
+        print("submit")
+        name = request.POST["firstname"]
+        lastname = request.POST["lastname"]
+        email = request.POST['email']
+        mobile = request.POST['mobile']
+        cname = request.POST['cname']
+        number = request.POST['num']
+        software = request.POST['soft']
+        business = request.POST.get('business')
+        print(business)
+        messages.success(request,"Submitted successfully ! Admin will contact you")
+        data = demo(firstname=name,lastname=lastname,email=email,)
     context ={
         'form' :form,
     }
@@ -156,3 +169,8 @@ def Demo(request):
 #features
 def feature(request):
     return render(request,'GymPages/features.html')
+
+#resources
+
+def resources(request):
+    return render(request,'GymPages/resources.html')

@@ -23,6 +23,7 @@
   <section class="blog_main_sec">
     <div class="container">
       <div class="row">
+          {% include 'partials/_alerts.html' %}
           <form method="post">
 
             <div class="col-md-6">
@@ -44,7 +45,7 @@
             </div>
             <div class="col-md-6">
               <div class="inner_about_con">
-                <h1>Register for demo</h1><br>
+                <h1>Register for demo</h1>
                    {{ form|crispy }}<br>
                   Club/company name*
                   <input type="text" class="form-control form" name="cname" required><br>

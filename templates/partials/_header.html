@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-
+{% load static %}
   <!-- Header Start -->
   <header class="main-header index_header">
     <div class="header-lower">
@@ -42,11 +42,15 @@
                   <a href="{% url 'contact' %}" class="js-scroll-trigger">CONTACT US</a>
                 </li>
                   <li class="nav-link">
-                  <a href="{% url 'contact' %}" class="js-scroll-trigger">BROCHURE</a>
+                  <a href="{% static 'images/gym.pdf' %}" class="js-scroll-trigger">BROCHURE</a>
                 </li>
                   <li class="nav-link">
                   <a href="{% url 'demo' %}" class="js-scroll-trigger">BOOK FOR DEMO</a>
                 </li>
+                  </li>
+                  <li class="nav-link">
+                  <a href="{% url 'resources' %}" class="js-scroll-trigger">Resources</a>
+                 </li>
                   <li class="nav-link">
                   <a href="{% url 'features' %}" class="js-scroll-trigger">FEATURES</a>
                 </li>
