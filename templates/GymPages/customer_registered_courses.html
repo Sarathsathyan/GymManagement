@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="page-wrapper blogpage2">
+  <!-- Preloader -->
+  <div class="preloader"></div>
+  <!-- Preloader -->
+
+
+  <!-- Page_banner start -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt wow fadeIn animated" data-wow-delay="1s" data-wow-duration="1000ms">
+          <h1 class="wow fadeInUp animated title_animate"> Courses </h1>
+          <h3 class="wow fadeInUp animated titlep_animate"> Access Your registered courses </h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Register </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+ <section class="blog_main_sec">
+    <div class="container">
+        {% include 'partials/_alerts.html' %}
+      <div class="row">
+
+          {% for i in registered %}
+
+          <div class="col-md-4 col-sm-6">
+              <div class="classes_box">
+
+                <div class="classes_detail">
+                  <h3>{{ i.event }}</h3>
+
+                  <p class="read_more">{{ i.state }}</p>
+                </div>
+              </div>
+         </div>
+
+          {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

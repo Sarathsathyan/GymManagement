@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <p class="breadcrumb1"><span> Home / Classes </span></p>
+    <p class="breadcrumb1"><span> <a href="{% url 'customer_courses' %}">Click tO View Registered Courses</a> </span></p>
   </section>
   <!-- Page_banner end -->
 
@@ -28,70 +28,23 @@
   <section class="classes">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 col-sm-6">
-          <div class="classes_box">
 
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-1.png' %}" alt=""> </div>
-            <div class="classes_detail">
-              <h3>kettlebell</h3>
-              <p class="read_more"><a href="{% url 'single' 1 %}" class="classes_more">Click for more informationn</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="classes_box">
+          {% for course in course %}
+          <div class="col-md-4 col-sm-6">
+              <div class="classes_box">
 
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-2.png' %}" alt=""> </div>
-            <div class="classes_detail">
-              <h3>Conjugate Methods</h3>
+                <div class="classes_img"> <img class="img-responsive" src="{{ course.image.url }}" alt="" width="500px"> </div>
+                <div class="classes_detail">
+                  <h3>{{ course.cname }}</h3>
 
-              <p class="read_more"><a href="{% url 'single' 2 %}" class="classes_more">Click for more information</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6">
-          <div class="classes_box">
-
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-4.png' %}" alt=""> </div>
-            <div class="classes_detail">
-              <h3>Advanced Gymnastic</h3>
-              <p class="read_more"><a href="{% url 'single' 3 %}" class="classes_more">Click for more information</a></p>
-            </div>
-          </div>
-        </div>
+                  <p class="read_more"><a href="{% url 'single' course.id %}" class="classes_more">Click for more informationn</a></p>
+                </div>
+              </div>
+         </div>
+          {% endfor %}
 
 
-        <div class="col-md-4 col-sm-6">
-          <div class="classes_box">
 
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-7.png' %}" alt=""> </div>
-            <div class="classes_detail">
-              <h3>Body Pump</h3>
-              <p class="read_more"><a href="{% url 'single' 4 %}" class="classes_more">Click for more information</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="classes_box">
-
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-8.png' %}" alt=""> </div>
-            <div class="classes_detail">
-              <h3>Striking</h3>
-              <p class="read_more"><a href="{% url 'single' 5 %}" class="classes_more">Click for more information</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="classes_box">
-
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/classes-9.png' %}" alt=""> </div>
-            <div class="classes_detail">
-              <h3>cardio</h3>
-              <p class="read_more"><a href="{% url 'single' 6 %}" class="classes_more">Click for more information</a></p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>

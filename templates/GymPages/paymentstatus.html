@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% load static %}
+
+<div class="page-wrapper blogpage2">
+  <!-- Preloader -->
+  <div class="preloader"></div>
+  <!-- Preloader -->
+
+
+  <!-- Page_banner start -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt wow fadeIn animated" data-wow-delay="1s" data-wow-duration="1000ms">
+          <h1 class="wow fadeInUp animated title_animate"> Payment </h1>
+          <h3 class="wow fadeInUp animated titlep_animate"> Payment conforming page</h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Register </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+ <section class="blog_main_sec">
+     {% include 'partials/_alerts.html' %}
+    <div class="container">
+      <div class="row">
+          <div class="container">
+
+                        <div class="col col-md-12">
+
+                            <h2>Payment status regarding your order Id {{response.ORDERID}}</h2><br>
+                            {% if response.RESPCODE == '01' %}
+                                <h3>ORDER SUCCESS</h3>
+
+                            {% else %}
+                                <h3>ORDER FAILURE</h3>
+                                <button><a href="payments.html"></a>Goto Payment Page </button>
+                            {% endif%}
+
+                        </div><br><br>
+          {% if response.RESPCODE == '01' %}
+
+          <div class="col col-md-4">
+              <h4>ORDER ID : <span style="color: #2b542c">{{ context.order_id }}</span> </h4>
+          </div>
+          <div class="col col-md-6">
+              <h4>TRANSACTION ID : <span style="color: #2b542c">{{ context.transaction_id }}</span> </h4>
+          </div>
+              <div class="col col-md-2">
+              <h4>AMOUND : <span style="color: #2b542c">{{ context.amount }}</span> </h4>
+              </div>
+              <div class="col-md-8">
+              <br>
+              <h4>BANK NAME : <span style="color: #2b542c">{{ context.bank_name }}</span> </h4>
+              </div>
+              <br>
+              <div class="col-md-4">
+              <h4>Gateway : <span style="color: #2b542c">{{ context.gateway }}</span> </h4>
+              </div>
+              <div class="col-md-12"><br>
+              <h5>This is the statement of your payment <span style="color: #2b542c">Login to start the course</span></h5>
+              </div>
+
+          {% endif %}
+
+          </div>
+
+                    {% block js %}
+                    <script>
+                    </script>
+                    {% endblock %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}
+

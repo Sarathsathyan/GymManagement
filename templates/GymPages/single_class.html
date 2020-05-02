@@ -3,34 +3,18 @@
 {% block content %}
     {% load static %}
 
-{% include 'partials/_alerts.html' %}
+
 <section class="classes" xmlns="http://www.w3.org/1999/html">
 <div class="container">
 <div class="row">
     <div class="col-md-12">
           <div class="classes_box">
-            {% if img == 1 %}
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/1.jpg' %}" alt=""> </div>
-              {% endif %}
-          {% if img == 2 %}
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/2.jpg' %}" alt=""> </div>
-              {% endif %}
-          {% if img == 3 %}
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/3.jpg' %}" alt=""> </div>
-              {% endif %}
-          {% if img == 4 %}
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/4.jpg' %}" style="width: 100%" alt=""> </div>
-              {% endif %}
-          {% if img == 5 %}
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/5.jpg' %}" style="width: 100%" alt=""> </div>
-              {% endif %}
-          {% if img == 6 %}
-            <div class="classes_img"> <img class="img-responsive" src="{% static 'images/6.jpeg' %}" alt=""> </div>
-              {% endif %}
+            <div class="classes_img"> <img class="img-responsive" src="{{ data.image.url }}" alt=""> </div>
+
             <div class="classes_detail">
-              <h3>{{ name }}</h3>
-                <h3>Time : {{ time }}AM</h3>
-              <p> {{ notes }} </p>
+              <h3>{{ data.cname }}</h3>
+                <h3>Price : {{ data.price }}</h3>
+              <p> {{ data.description }} </p>
             </div>
           </div>
         </div>
@@ -38,19 +22,20 @@
 </div>
 </section>
 <section class="container">
-
+{% include 'partials/_alerts.html' %}
 <h3 style=" color: #ee6c0c;">
     Register for this workout ?
 </h3><br>
 <form method="POST" class="fom-group" enctype="multipart/form-data"  >
     {% csrf_token %}
-<input type="text" value="{{ name }}" class="text" name="event" readonly><br>
+Course :
+<input type="text" value="{{ data.cname }}" class="text" name="event" readonly><br>
 Name* :
-<input type="text" name="name" class="form-control " required><br>
-Phone* :
-<input type="text" name="mobile" class="form-control" required><br>
+    <input type="text" value="{{ user.first_name }}" class="text" name="name" readonly><br>
+
 Email* :
-<input type="text" name="email" class="form-control" required><br>
+    <input type="text" value="{{ user.email }}" class="text" name="email" readonly><br>
+
 
 State* :
                     <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>

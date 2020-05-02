@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="page-wrapper blogpage2">
+  <!-- Preloader -->
+  <div class="preloader"></div>
+  <!-- Preloader -->
+
+
+  <!-- Page_banner start -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt wow fadeIn animated" data-wow-delay="1s" data-wow-duration="1000ms">
+          <h1 class="wow fadeInUp animated title_animate"> Payment </h1>
+          <h3 class="wow fadeInUp animated titlep_animate"> Complete Your Pament Here </h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Payment section </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+ <section class="blog_main_sec">
+     {% include 'partials/_alerts.html' %}
+    <div class="container">
+      <div class="row">
+          <form method="POST">{% csrf_token %}
+              <input type="hidden" name="amount" value="100">
+            <div class="col-md-6">
+                <div class="inner_about_con" style="padding-top: 0px">
+                    Name
+                    <input type="text" class="form-control" name="name" placeholder="Enter name"><br>
+                    Address
+                    <input type="text" class="form-control" name="address1" placeholder="Enter address line1"><br>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="inner_about_con"style="padding-top: 0px">
+                    Email
+                    <input type="Email" class="form-control" name="email" placeholder="Enter email"><br>
+                    Address2
+                    <input type="text" class="form-control" name="address2" placeholder="Enter address line2"><br>
+              </div>
+            </div>
+              <div class="col-md-4">
+
+                  State
+                     <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+
+              </div>
+              <div class="col-md-4">
+                  City
+                    <select id ="state" class="form-control" name="district" required></select>
+                    <script language="javascript">print_state("sts");</script>
+              </div>
+                <div class="col-md-4">
+                  Zip
+                    <input type="number" class="form-control" name="zip" placeholder="Enter zip code"><br>
+              </div>
+              <div class="col-md-12">
+              <input type="submit" class="btn btn-primary" value="Place Course"style="float: right">
+              </div>
+
+
+          </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+{% block content %}{% load static %}
+<div class="page-wrapper blogpage2">
+  <!-- Preloader -->
+  <div class="preloader"></div>
+  <!-- Preloader -->
+
+
+  <!-- Page_banner start -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt wow fadeIn animated" data-wow-delay="1s" data-wow-duration="1000ms">
+          <h1 class="wow fadeInUp animated title_animate"> Register Here </h1>
+          <h3 class="wow fadeInUp animated titlep_animate"> Register on GymFit </h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Register </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+ <section class="blog_main_sec">
+    <div class="container">
+      <div class="row">
+          {% include 'partials/_alerts.html' %}
+          <form method="POST">
+
+            <div class="col-md-6">
+                <div class="inner_about_con">
+    {#          <div class="about_img"> <img class="img-responsive" src="{% static 'images/about_png.png' %}" alt=""> </div>#}
+                    {% csrf_token %}
+                  <input type="text" class="form-control form" name="firstname" required placeholder="Firstname"><br>
+
+                  <input type="text" class="form-control form" name="lastname" required placeholder="Lastname"><br>
+
+                  <input type="text" class="form-control form" name="email" required placeholder="Email"><br>
+
+                  <input type="text" class="form-control form" name="username" required placeholder="Create Username"><br>
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="inner_about_con">
+                    {% csrf_token %} {{ form|crispy }}
+                    <br>
+                    <input type="password" name="password" class="form-control form" required placeholder="Password"><br>
+                    <input class="btn btn-success" type="submit" name="submit" id="submit" value="Submit">
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+{% endblock %}

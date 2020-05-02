@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}{% load static %}
+
+    <div class="page-wrapper blogpage2">
+
+  <!-- Preloader -->
+  <div class="preloader"></div>
+  <!-- Preloader -->
+
+
+  <!-- Page_banner start -->
+  <section class="breadcrumb_sec">
+    <div class="container">
+      <div class="row">
+        <div class="blog_txt wow fadeIn animated" data-wow-delay="1s" data-wow-duration="1000ms">
+          <h1 class="wow fadeInUp animated title_animate"> Transformation Plans </h1>
+          <h3 class="wow fadeInUp animated titlep_animate">  </h3>
+        </div>
+      </div>
+    </div>
+    <p class="breadcrumb1"><span> Home / Transformation </span></p>
+  </section>
+  <!-- Page_banner end -->
+
+ <section class="blog_main_sec">
+     {% include 'partials/_alerts.html' %}
+    <div class="container">
+      <div class="row">
+          <form method="POST">{% csrf_token %}
+              {% comment %} Monday workout {% endcomment %}
+
+              <h3 style="font-weight: revert">Monday Workout :<span style="color: orangered">Chest and Back</span></h3><br>
+            <table class="table table-dark">
+
+
+                  <thead>
+                    <tr>
+
+                        <th scope="col">#</th>
+                        <th scope="col">Excercise</th>
+                        <th scope="col">Sets</th>
+                        <th scope="col">Reps</th>
+                        <th scope="col">Tempo</th>
+                        <th scope="col">Rest</th>
+
+                    </tr>
+                  </thead>{% for i in data %}
+                {% if i.day == 'Monday' %}
+                  <tbody>
+                    <tr>
+                      <th scope="row">{{ i.id }}</th>
+                      <td>{{ i.excercise }}</td>
+                      <td>4</td>
+                      <td>10</td>
+                        <td>2010</td>
+                      <td>60sec</td>
+                    </tr>
+
+                  </tbody>
+                {% endif %}
+            {% endfor %}
+            </table>
+              {% comment %} Monday workout {% endcomment %}
+              <h3 style="font-weight: revert">Wednesday Workout :<span style="color: orangered">Legs and Abs</span></h3><br>
+
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+
+                        <th scope="col">#</th>
+                        <th scope="col">Excercise</th>
+                        <th scope="col">Sets</th>
+                        <th scope="col">Reps</th>
+                        <th scope="col">Tempo</th>
+                        <th scope="col">Rest</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Squat</td>
+                      <td>4</td>
+                      <td>10</td>
+                        <td>2010</td>
+                      <td>60sec</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Romanian deadlift</td>
+                      <td>4</td>
+                      <td>10</td>
+                        <td>2010</td>
+                      <td>60sec</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Leg extension</td>
+                      <td>3</td>
+                      <td>12</td>
+                        <td>2011</td>
+                      <td>60sec</td>
+                    </tr>
+                  </tbody>
+            </table>
+          </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
 {% load static %}
   <!-- Header Start -->
@@ -34,26 +35,50 @@
                 <li class="nav-link">
                   <a href="{% url 'about' %}" class="js-scroll-trigger">ABOUT US</a>
                 </li>
-                <li class="nav-link">
-                  <a href="{% url 'classes' %}" class="js-scroll-trigger">COURSES</a>
-                </li>
+
+
+
 
                 <li class="nav-link">
                   <a href="{% url 'contact' %}" class="js-scroll-trigger">CONTACT US</a>
                 </li>
-                  <li class="nav-link">
-                  <a href="{% static 'images/gym.pdf' %}" class="js-scroll-trigger">BROCHURE</a>
-                </li>
+
                   <li class="nav-link">
                   <a href="{% url 'demo' %}" class="js-scroll-trigger">BOOK FOR DEMO</a>
                 </li>
                   </li>
+              {% if user.is_authenticated %}
                   <li class="nav-link">
                   <a href="{% url 'resources' %}" class="js-scroll-trigger">Resources</a>
                  </li>
+
+                   <li class="nav-link">
+                  <a href="{% url 'classes' %}" class="js-scroll-trigger">COURSES</a>
+{#                </li>#}
+{#                   <li class="nav-link">#}
+{#                  <a href="{% url 'features' %}" class="js-scroll-trigger">FEATURES</a>#}
+{#                </li>#}
+              {% else %}
                   <li class="nav-link">
-                  <a href="{% url 'features' %}" class="js-scroll-trigger">FEATURES</a>
+                  <a href="{% static 'images/gym.pdf' %}" class="js-scroll-trigger">BROCHURE</a>
                 </li>
+              {% endif %}
+
+
+
+              {% if user.is_authenticated %}
+              <li class="nav-link">
+                  <a href="{% url 'logout' %}" class="js-scroll-trigger">{{ user.username }} Logout</a>
+                </li>
+                  {% else %}
+                  <li class="nav-link">
+                  <a href="{% url 'login' %}" class="js-scroll-trigger">Login</a>
+                </li>
+                   <li class="nav-link">
+                  <a href="{% url 'register' %}" class="js-scroll-trigger">Register</a>
+                </li>
+
+              {% endif %}
                 <li class="search-btn" onclick="openSearch()">
                   <a><i class="fa fa-search"></i></a>
                 </li>
